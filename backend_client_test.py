@@ -34,7 +34,7 @@ def test_getParameters(request_url):
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-ht','--host', type= str, default="127.0.01", help='request host')
+    parser.add_argument('-ht','--host', type= str, default="127.0.0.1", help='request host')
     parser.add_argument('-pt','--port', type= int , default=8080, help='request port')
     parser.add_argument('-tn','--turn', type = int, default=1, help='request turn')
 
