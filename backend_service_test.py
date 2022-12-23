@@ -218,12 +218,12 @@ def start_status():
 
 @app.route("/TradeMaster/test", methods=["POST"])
 def test():
-    res = SERVER.start(request)
+    res = SERVER.test(request)
     return res
 
 @app.route("/TradeMaster/test_status", methods=["POST"])
 def test_status():
-    res = SERVER.start_status(request)
+    res = SERVER.test_status(request)
     return res
 
 @app.route("/TradeMaster/healthcheck", methods=["GET"])
