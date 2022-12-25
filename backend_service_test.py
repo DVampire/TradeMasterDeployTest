@@ -6,13 +6,14 @@ import time
 import logging
 import pytz
 import json
+from flask_cors import CORS
 
 tz = pytz.timezone('Asia/Shanghai')
 
 root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, root)
 app = Flask(__name__)
-
+CORS(app, resources={r"/TradeMaster/*": {"origins": "*"}})
 
 def logger():
     logger = logging.getLogger("server")
