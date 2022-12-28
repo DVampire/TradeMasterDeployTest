@@ -202,27 +202,27 @@ class HealthCheck():
 SERVER = Server()
 HEALTHCHECK = HealthCheck()
 
-@app.route("/TradeMaster/getParameters", methods=["GET"])
+@app.route("/api/TradeMaster/getParameters", methods=["GET"])
 def getParameters():
     res = SERVER.get_parameters(request)
     return res
 
-@app.route("/TradeMaster/train", methods=["POST"])
+@app.route("/api/TradeMaster/train", methods=["POST"])
 def start():
     res = SERVER.train(request)
     return res
 
-@app.route("/TradeMaster/train_status", methods=["POST"])
+@app.route("/api/TradeMaster/train_status", methods=["POST"])
 def start_status():
     res = SERVER.train_status(request)
     return res
 
-@app.route("/TradeMaster/test", methods=["POST"])
+@app.route("/api/TradeMaster/test", methods=["POST"])
 def test():
     res = SERVER.test(request)
     return res
 
-@app.route("/TradeMaster/test_status", methods=["POST"])
+@app.route("/api/TradeMaster/test_status", methods=["POST"])
 def test_status():
     res = SERVER.test_status(request)
     return res
