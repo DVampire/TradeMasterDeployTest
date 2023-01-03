@@ -43,6 +43,7 @@ class Server():
             "task_name": ["algorithmic_trading", "order_execution", "portfolio_management"],
             "dataset_name": ["algorithmic_trading:BTC",
                              "order_excecution:BTC",
+                             "order_excecution:PD_BTC",
                              "portfolio_management:dj30",
                              "portfolio_management:exchange"],
             "optimizer_name": ["adam", "adaw"],
@@ -61,7 +62,22 @@ class Server():
                 "portfolio_management:sac",
                 "portfolio_management:sarl",
                 "portfolio_management:td3"
-            ]
+            ],
+            "start_date": {
+                "algorithmic_trading:BTC": "2013-04-29",
+                "order_excecution:BTC": "2021-04-07",
+                "order_excecution:PD_BTC":"2013-04-29",
+                "portfolio_management:dj30": "2012-01-04",
+                "portfolio_management:exchange": "2000-01-27",
+            },
+            "end_date": {
+                "algorithmic_trading:BTC": "2021-07-05",
+                "order_excecution:BTC": "2021-04-19",
+                "order_excecution:PD_BTC": "2021-07-059",
+                "portfolio_management:dj30": "2021-12-31",
+                "portfolio_management:exchange": "2019-12-31",
+            }
+
         }
         logger.info("get_parameters end.")
         return jsonify(res)
@@ -75,8 +91,8 @@ class Server():
             optimizer_name = request_json.get("optimizer_name")
             loss_name = request_json.get("loss_name")
             agent_name = request_json.get("agent_name")
-            train_start_date = request_json.get("train_start_date")
-            test_start_date = request_json.get("test_start_date")
+            train_start_date = request_json.get("start_date")
+            test_start_date = request_json.get("end_date")
 
             session_id = str(uuid.uuid1())
 
