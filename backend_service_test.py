@@ -91,8 +91,8 @@ class Server():
             optimizer_name = request_json.get("optimizer_name")
             loss_name = request_json.get("loss_name")
             agent_name = request_json.get("agent_name")
-            train_start_date = request_json.get("start_date")
-            test_start_date = request_json.get("end_date")
+            start_date = request_json.get("start_date")
+            end_date = request_json.get("end_date")
 
             session_id = str(uuid.uuid1())
 
