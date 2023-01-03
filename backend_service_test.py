@@ -243,7 +243,7 @@ def test_status():
     res = SERVER.test_status(request)
     return res
 
-@app.route("/TradeMaster/healthcheck", methods=["GET"])
+@app.route("api/TradeMaster/healthcheck", methods=["GET"])
 def health_check():
     res = HEALTHCHECK.run(request)
     return res
