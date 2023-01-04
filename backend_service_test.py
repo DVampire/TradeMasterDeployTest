@@ -73,7 +73,7 @@ class Server():
             "end_date": {
                 "algorithmic_trading:BTC": "2021-07-05",
                 "order_excecution:BTC": "2021-04-19",
-                "order_excecution:PD_BTC": "2021-07-059",
+                "order_excecution:PD_BTC": "2021-07-05",
                 "portfolio_management:dj30": "2021-12-31",
                 "portfolio_management:exchange": "2019-12-31",
             }
@@ -243,7 +243,7 @@ def test_status():
     res = SERVER.test_status(request)
     return res
 
-@app.route("api/TradeMaster/healthcheck", methods=["GET"])
+@app.route("/api/TradeMaster/healthcheck", methods=["GET"])
 def health_check():
     res = HEALTHCHECK.run(request)
     return res
