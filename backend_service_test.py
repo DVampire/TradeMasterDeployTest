@@ -271,7 +271,7 @@ def test():
     return res
 
 @app.route("/api/TradeMaster/style_test", methods=["POST"])
-def test():
+def style_test():
     res = SERVER.style_test(request)
     return res
 
