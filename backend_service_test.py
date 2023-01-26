@@ -76,8 +76,12 @@ class Server():
                 "order_excecution:PD_BTC": "2021-07-05",
                 "portfolio_management:dj30": "2021-12-31",
                 "portfolio_management:exchange": "2019-12-31",
-            }
-
+            },
+            "style_test":[
+                "bear_market",
+                "bull_market",
+                "oscillation_market"
+            ]
         }
         logger.info("get_parameters end.")
         return jsonify(res)
@@ -194,6 +198,34 @@ class Server():
             logger.info(info)
             return jsonify(res)
 
+    def style_test(self, request):
+        request_json = json.loads(request.get_data(as_text=True))
+        try:
+
+            session_id = request_json.get("session_id")
+            style_test_mode = request_json.get("style_test")
+
+            error_code = 0
+            info = "style test request success"
+            res = {
+                "error_code": error_code,
+                "info": info,
+                "session_id": session_id
+            }
+            logger.info(info)
+            return jsonify(res)
+
+        except Exception as e:
+            error_code = 1
+            info = "request data error, {}".format(e)
+            res = {
+                "error_code": error_code,
+                "info": info,
+                "session_id": session_id
+            }
+            logger.info(info)
+            return jsonify(res)
+
 
 class HealthCheck():
     def __init__(self):
@@ -236,6 +268,11 @@ def start_status():
 @app.route("/api/TradeMaster/test", methods=["POST"])
 def test():
     res = SERVER.test(request)
+    return res
+
+@app.route("/api/TradeMaster/style_test", methods=["POST"])
+def test():
+    res = SERVER.style_test(request)
     return res
 
 @app.route("/api/TradeMaster/test_status", methods=["POST"])
